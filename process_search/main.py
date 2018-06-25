@@ -34,7 +34,7 @@ def list_all():
 
 def list_all_python():
     """list all currently running python processes"""
-    return [x for x in list_all() if x[2] == 'python']
+    return [x for x in list_all() if x[2][0] == 'python']
 
 
 def is_running(script_name):
