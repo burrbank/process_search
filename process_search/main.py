@@ -15,12 +15,13 @@ def format_response(row):
     if length == 3:
         pid, user, cmd = row
     elif length > 3:
-        pid = row[0]
-        user = row[1]
-        cmd = row[2]
-        args = row[3:]
+        pid = row[1]
+        user = row[2]
+        cmd = row[3]
+        args = row[4:]
     else:
         pid, user, cmd = None, None, None
+
     return pid, user, cmd, args
 
 
@@ -34,7 +35,7 @@ def list_all():
 
 def list_all_python():
     """list all currently running python processes"""
-    return [x for x in list_all() if x[2][0] == 'python']
+    return [x for x in list_all() if x[2] is not None and x[2] == 'python']
 
 
 def is_running(script_name):
