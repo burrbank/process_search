@@ -42,6 +42,9 @@ def is_running(script_name):
     """"determine if a particular python script is running"""
     py_proc = list_all_python()
     for _, _, _, args in py_proc:
+        if len(args) == 0:
+            continue
+
         if args[0] == script_name:
             return True
     else:
